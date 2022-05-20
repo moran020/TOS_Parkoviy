@@ -1,0 +1,79 @@
+{"event":[{
+    "ID": "11",
+    "eventName" : "name1",
+    "eventType" : [{
+        "culture":true,
+        "sport":false,
+        "education":true,
+        "ecology":false,
+        "family":true,
+        "voluntiiring":false
+    }],
+    "description": "Мероприятие такое-те",
+    "place":"Место1",
+    "date": "15 мая 2022",
+    "time": "13:00",
+    "longitude": 37.701767,
+    "latitude": 54.208625,
+    "image": "assets/images/event.jpeg"
+},
+
+{
+    "ID": "12",
+    "eventName" : "name2",
+    "eventType" : [{
+        "culture":true,
+        "sport":false,
+        "education":true,
+        "ecology":false,
+        "family":true,
+        "voluntiiring":false
+    }],
+    "description": "Мероприятие такое-то, то то то то то то то то",
+    "place":"Место2",
+    "date": "15 мая 2022",
+    "time": "10:00",
+    "longitude": 36.604532,
+    "latitude": 53.196765,
+    "image": "assets/images/event.jpeg"
+},
+
+{
+    "ID": "13",
+    "eventName" : "name3",
+    "eventType" : [{
+        "culture":true,
+        "sport":false,
+        "education":true,
+        "ecology":false,
+        "family":true,
+        "voluntiiring":false
+    }],
+    "description": "Мероприятие такое-те",
+    "place":"Место3",
+    "date": "Дата3",
+    "time": "Время3",
+    "longitude": 35.601574,
+    "latitude": 55.187525,
+    "image": "assets/images/event.jpeg"
+},
+{
+    "ID": "14",
+    "eventName" : "name4",
+    "eventType" : [{
+        "culture":true,
+        "sport":false,
+        "education":true,
+        "ecology":false,
+        "family":true,
+        "voluntiiring":false
+    }],
+    "description": "Мероприятие такое-те",
+    "place":"Место4",
+    "date": "Дата4",
+    "time": "Время4",
+    "longitude": 37.502600,
+    "latitude": 54.186793,
+    "image": "assets/images/event.jpeg"
+}
+]}
