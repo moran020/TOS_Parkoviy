@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:tos_parkoviy_app/components/constants.dart';
-import 'package:tos_parkoviy_app/components/organizations_fromJson.dart';
-// import 'package:tos_parkoviy_app/screens/2_homescreen.dart';
-import '../../components/organizations_fromJson.dart';
-import '../4_card_details/class_DataToMap.dart';
+import 'package:tos_parkoviy_app/components/colors.dart';
+import 'package:tos_parkoviy_app/components/locations_from_json.dart';
+import '../../components/locations_from_json.dart';
+import '../../components/class_data_to_map.dart';
 
-class CatalogOrganizations extends StatelessWidget {
-  // late final Data data;
+// Список пространств
+class CatalogLocations extends StatelessWidget {
+  const CatalogLocations({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // RouteSettings settings = ModalRoute.of(context)!.settings;
-    // data = settings.arguments as Data;
-
     return Scaffold(
         appBar: AppBar(
-          title: Text('Организации'),
+          title: const Text('Пространства'),
           centerTitle: true,
-          backgroundColor: bgColorOrganizationsAppBar,
+          backgroundColor: bgColorPlacesAppBar,
         ),
         resizeToAvoidBottomInset: false,
         body: Container(
@@ -27,41 +24,36 @@ class CatalogOrganizations extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            child: CatalogOrganizationsList()));
+            child: const CatalogLocationsList()));
   }
 }
 
-class CatalogOrganizationsList extends StatefulWidget {
-  const CatalogOrganizationsList({
+class CatalogLocationsList extends StatefulWidget {
+  const CatalogLocationsList({
     Key? key,
   }) : super(key: key);
 
   @override
-  _CatalogOrganizationsListState createState() =>
-      _CatalogOrganizationsListState();
+  _CatalogLocationsListState createState() => _CatalogLocationsListState();
 }
 
-class _CatalogOrganizationsListState extends State<CatalogOrganizationsList> {
+class _CatalogLocationsListState extends State<CatalogLocationsList> {
   final _searchController = TextEditingController();
   String searchString = "";
 
-  late Future<Organizations> futureData;
+  late Future<Locations> futureData;
 
   @override
   void initState() {
     super.initState();
-    futureData = getOrganizationsList();
+    futureData = getLocationsList();
   }
-
-  // late Data data;
-  // late final DataToCard colorappbar;
 
   @override
   Widget build(BuildContext context) {
-    // RouteSettings settings = ModalRoute.of(context)!.settings;
-    // data = settings.arguments as Data;
     return Column(
       children: [
+        // Поле поиска
         Align(
           alignment: Alignment.topCenter,
           child: Container(
@@ -86,9 +78,7 @@ class _CatalogOrganizationsListState extends State<CatalogOrganizationsList> {
                   IconButton(
                     icon: const Icon(Icons.search),
                     color: Colors.black45,
-                    onPressed: () {
-                      // widget.parentCallback(cityController.text);
-                    },
+                    onPressed: () {},
                   ),
                   Expanded(
                     child: TextField(
@@ -106,6 +96,7 @@ class _CatalogOrganizationsListState extends State<CatalogOrganizationsList> {
                 ]),
           ),
         ),
+        // Список в соответствии с запросом (по умолчанию запрос пустой)
         Expanded(
           child: FutureBuilder(
             future: futureData,
@@ -113,24 +104,24 @@ class _CatalogOrganizationsListState extends State<CatalogOrganizationsList> {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
               } else if (data.hasData) {
-                var organizations = data.data as Organizations;
-                var items = organizations.organization as List<Organization>;
+                var locations = data.data as Locations;
+                var items = locations.location as List<Location>;
 
                 return ListView.builder(
                   padding: const EdgeInsets.only(
                       left: 15, top: 20, right: 15, bottom: 15),
-                  itemCount: items == null ? 0 : items.length,
+                  itemCount: items.length,
                   itemBuilder: (_, index) {
                     return items[index]
+                                .condition!
+                                .toLowerCase()
+                                .contains(searchString) ||
+                            items[index]
                                 .name!
                                 .toLowerCase()
                                 .contains(searchString) ||
                             items[index]
-                                .type!
-                                .toLowerCase()
-                                .contains(searchString) ||
-                            items[index]
-                                .shortDescr!
+                                .street!
                                 .toLowerCase()
                                 .contains(searchString)
                         ? GestureDetector(
@@ -149,6 +140,7 @@ class _CatalogOrganizationsListState extends State<CatalogOrganizationsList> {
                                   ),
                                 ],
                               ),
+                              // Карточка пространства
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -162,7 +154,7 @@ class _CatalogOrganizationsListState extends State<CatalogOrganizationsList> {
                                         margin: const EdgeInsets.only(
                                             right: 18, left: 15),
                                         decoration: const BoxDecoration(
-                                          color: bgColorOrganizations,
+                                          color: bgColorPlaces,
                                           borderRadius: BorderRadius.all(
                                               Radius.circular(10)),
                                         ),
@@ -173,21 +165,19 @@ class _CatalogOrganizationsListState extends State<CatalogOrganizationsList> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              items[index].type.toString(),
+                                              items[index].condition.toString(),
                                               textAlign: TextAlign.center,
                                               style: const TextStyle(
-                                                fontSize: 10,
+                                                fontSize: 12,
                                               ),
                                             ),
                                           ],
                                         ),
                                       ),
-                                      Padding(
+                                      Container(
+                                        width: 215,
                                         padding: const EdgeInsets.only(
-                                            right: 10,
-                                            // left: 20,
-                                            top: 15,
-                                            bottom: 15),
+                                            right: 10, top: 15, bottom: 15),
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
@@ -195,21 +185,27 @@ class _CatalogOrganizationsListState extends State<CatalogOrganizationsList> {
                                             Text(
                                               items[index].name.toString(),
                                               style: const TextStyle(
-                                                fontSize: 16,
-                                              ),
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold,
+                                                  overflow: TextOverflow.clip),
+                                            ),
+                                            const SizedBox(
+                                              height: 2,
                                             ),
                                             Text(
-                                              items[index]
-                                                  .shortDescr
-                                                  .toString(),
+                                              items[index].street.toString() +
+                                                  ", " +
+                                                  items[index].house.toString(),
                                               style:
                                                   const TextStyle(fontSize: 14),
+                                              overflow: TextOverflow.clip,
                                             ),
                                           ],
                                         ),
                                       ),
                                     ],
                                   ),
+                                  // Кнопка перехода в следующий раздел
                                   Column(
                                     children: [
                                       Container(
@@ -231,23 +227,27 @@ class _CatalogOrganizationsListState extends State<CatalogOrganizationsList> {
                                 ],
                               ),
                             ),
+                            // Передача информации о выбранном доме в следующий раздел
                             onTap: () => {
-                              Navigator.pushNamed(
-                                  context, '/organization_card_details',
-                                  arguments: DataToMap(
-                                    bgcolor: bgColorOrganizationsAppBar,
-                                      organizationName: items[index].name,
-                                      organizationType: items[index].type,
-                                      organizationShortDescr: items[index].shortDescr,
-                                      organizationLongDescr: items[index].longDescr,
-                                      organizationStreet: items[index].street,
-                                      organizationHouse: items[index].house,
-                                      organizationLongitude: items[index].longitude,
-                                      organizationLatitude: items[index].latitude,
-                                      organizationImage: items[index].image,
-                                  )
-                              )
-                            })
+                                  Navigator.pushNamed(
+                                      context, '/location_card_details',
+                                      arguments: DataToMap(
+                                        bgcolor: bgColorPlacesAppBar,
+                                        locationName: items[index].name,
+                                        locationType: items[index].type,
+                                        locationCondition:
+                                            items[index].condition,
+                                        locationFinance: items[index].finance,
+                                        locationFullDescr:
+                                            items[index].fullDescr,
+                                        locationStreet: items[index].street,
+                                        locationHouse: items[index].house,
+                                        locationImage: items[index].image,
+                                        locationLongitude:
+                                            items[index].longitude,
+                                        locationLatitude: items[index].latitude,
+                                      ))
+                                })
                         : Container();
                   },
                 );

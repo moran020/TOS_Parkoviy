@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import '../../components/constants.dart';
-import 'package:tos_parkoviy_app/screens/3_catalog/5_section_map.dart';
+import '../components/colors.dart';
+import 'package:tos_parkoviy_app/screens/tos_map.dart';
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+// Главное меню
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -112,6 +113,7 @@ class Body extends StatelessWidget {
   }
 }
 
+// Конструктор для разделов главного меню
 class MenuCard extends StatelessWidget {
   late String icon;
   late String title;

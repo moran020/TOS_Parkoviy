@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:tos_parkoviy_app/components/constants.dart';
-import 'package:tos_parkoviy_app/screens/4_card_details/class_DataToMap.dart';
-// import 'package:tos_parkoviy_app/screens/2_homescreen.dart';
-import '../../components/houses_fromJson.dart';
+import 'package:tos_parkoviy_app/components/colors.dart';
+import 'package:tos_parkoviy_app/components/class_data_to_map.dart';
+import '../../components/houses_from_json.dart';
 
+// Список домов
 class CatalogHouses extends StatelessWidget {
-  // late final Data data;
+  const CatalogHouses({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // RouteSettings settings = ModalRoute.of(context)!.settings;
-    // data = settings.arguments as Data;
-
     return Scaffold(
         appBar: AppBar(
-          title: Text('Дома'),
+          title: const Text('Дома'),
           centerTitle: true,
           backgroundColor: bgColorHousesAppBar,
         ),
@@ -26,7 +23,7 @@ class CatalogHouses extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            child: CatalogHousesList()));
+            child: const CatalogHousesList()));
   }
 }
 
@@ -42,7 +39,6 @@ class CatalogHousesList extends StatefulWidget {
 class _CatalogHousesListState extends State<CatalogHousesList> {
   final _searchController = TextEditingController();
   String searchString = "";
-
   late Future<Houses> futureData;
 
   @override
@@ -51,15 +47,11 @@ class _CatalogHousesListState extends State<CatalogHousesList> {
     futureData = getHousesList();
   }
 
-  // late Data data;
-  // late final DataToCard colorappbar;
-
   @override
   Widget build(BuildContext context) {
-    // RouteSettings settings = ModalRoute.of(context)!.settings;
-    // data = settings.arguments as Data;
     return Column(
       children: [
+        // Поле поиска
         Align(
           alignment: Alignment.topCenter,
           child: Container(
@@ -82,12 +74,9 @@ class _CatalogHousesListState extends State<CatalogHousesList> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
-                    icon: const Icon(Icons.search),
-                    color: Colors.black45,
-                    onPressed: () {
-                      // widget.parentCallback(cityController.text);
-                    },
-                  ),
+                      icon: const Icon(Icons.search),
+                      color: Colors.black45,
+                      onPressed: () {}),
                   Expanded(
                     child: TextField(
                       controller: _searchController,
@@ -104,6 +93,7 @@ class _CatalogHousesListState extends State<CatalogHousesList> {
                 ]),
           ),
         ),
+        // Список в соответствии с запросом (по умолчанию запрос пустой)
         Expanded(
           child: FutureBuilder(
             future: futureData,
@@ -153,6 +143,7 @@ class _CatalogHousesListState extends State<CatalogHousesList> {
                                   ),
                                 ],
                               ),
+                              // Карточка дома
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -188,10 +179,7 @@ class _CatalogHousesListState extends State<CatalogHousesList> {
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.only(
-                                            right: 10,
-                                            // left: 20,
-                                            top: 15,
-                                            bottom: 15),
+                                            right: 10, top: 15, bottom: 15),
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
@@ -199,23 +187,20 @@ class _CatalogHousesListState extends State<CatalogHousesList> {
                                             Text(
                                               items[index].street.toString(),
                                               style: const TextStyle(
+                                                fontWeight: FontWeight.bold,
                                                 fontSize: 16,
                                               ),
                                             ),
                                             Text(
-                                              items[index]
+                                              "Старший: " +
+                                                  items[index]
                                                       .caretaker![0]
                                                       .caretakerSurname
                                                       .toString() +
                                                   " " +
                                                   items[index]
                                                       .caretaker![0]
-                                                      .caretakerName
-                                                      .toString() +
-                                                  " " +
-                                                  items[index]
-                                                      .caretaker![0]
-                                                      .caretakerDadname
+                                                      .initials
                                                       .toString(),
                                               style:
                                                   const TextStyle(fontSize: 14),
@@ -225,6 +210,7 @@ class _CatalogHousesListState extends State<CatalogHousesList> {
                                       ),
                                     ],
                                   ),
+                                  // Кнопка перехода в следующий раздел
                                   Column(
                                     children: [
                                       Container(
@@ -246,38 +232,94 @@ class _CatalogHousesListState extends State<CatalogHousesList> {
                                 ],
                               ),
                             ),
+                            // Передача информации о выбранном доме в следующий раздел
                             onTap: () => {
                                   Navigator.pushNamed(
-                                    context, '/house_card_details',
-                                    arguments: DataToMap(
-                                      bgcolor: bgColorHousesAppBar,
-                                      itemId: items[index].iD,
-                                      streetHouse: items[index].street,
-                                      numberHouse: items[index].house,
-                                      caretakerName: items[index].caretaker![0].caretakerName,
-                                      caretakerDadname: items[index].caretaker![0].caretakerDadname,
-                                      caretakerSurname: items[index].caretaker![0].caretakerSurname,
-                                      caretakerContact: items[index].caretaker![0].contact,
-                                      houseYear: items[index].year,
-                                      serviceProvider: items[index].serviceProvider,
-                                      refurbishmentRoofYear: items[index].refurbishment![0].roof![0].maintenanceYear,
-                                      refurbishmentRoofCondition: items[index].refurbishment![0].roof![0].condition,
-                                      refurbishmentFrontYear: items[index].refurbishment![0].front![0].maintenanceYear,
-                                      refurbishmentFrontCondition: items[index].refurbishment![0].front![0].condition,
-                                      refurbishmentElectronicsYear: items[index].refurbishment![0].electronics![0].maintenanceYear,
-                                      refurbishmentElectronicsCondition: items[index].refurbishment![0].electronics![0].condition,
-                                      refurbishmentWaterYear: items[index].refurbishment![0].water![0].maintenanceYear,
-                                      refurbishmentWaterCondition: items[index].refurbishment![0].water![0].condition,
-                                      refurbishmentSewerageYear: items[index].refurbishment![0].sewerage![0].maintenanceYear,
-                                      refurbishmentSewerageCondition: items[index].refurbishment![0].sewerage![0].condition,
-                                      refurbishmentHeatingYear: items[index].refurbishment![0].heating![0].maintenanceYear,
-                                      refurbishmentHeatingCondition: items[index].refurbishment![0].heating![0].condition,
-                                      refurbishmentGasYear: items[index].refurbishment![0].gas![0].maintenanceYear,
-                                      refurbishmentGasCondition: items[index].refurbishment![0].gas![0].condition,
-                                      houseLongitude: items[index].longitude,
-                                      houseLatitude: items[index].latitude,
-                                    )
-                                  )
+                                      context, '/house_card_details',
+                                      arguments: DataToMap(
+                                        bgcolor: bgColorHousesAppBar,
+                                        itemId: items[index].iD,
+                                        streetHouse: items[index].street,
+                                        numberHouse: items[index].house,
+                                        caretakerName: items[index]
+                                            .caretaker![0]
+                                            .caretakerName,
+                                        caretakerDadname: items[index]
+                                            .caretaker![0]
+                                            .caretakerDadname,
+                                        caretakerSurname: items[index]
+                                            .caretaker![0]
+                                            .caretakerSurname,
+                                        caretakerContact:
+                                            items[index].caretaker![0].contact,
+                                        houseYear: items[index].year,
+                                        serviceProvider:
+                                            items[index].serviceProvider,
+                                        refurbishmentRoofYear: items[index]
+                                            .refurbishment![0]
+                                            .roof![0]
+                                            .maintenanceYear,
+                                        refurbishmentRoofCondition: items[index]
+                                            .refurbishment![0]
+                                            .roof![0]
+                                            .condition,
+                                        refurbishmentFrontYear: items[index]
+                                            .refurbishment![0]
+                                            .front![0]
+                                            .maintenanceYear,
+                                        refurbishmentFrontCondition:
+                                            items[index]
+                                                .refurbishment![0]
+                                                .front![0]
+                                                .condition,
+                                        refurbishmentElectronicsYear:
+                                            items[index]
+                                                .refurbishment![0]
+                                                .electronics![0]
+                                                .maintenanceYear,
+                                        refurbishmentElectronicsCondition:
+                                            items[index]
+                                                .refurbishment![0]
+                                                .electronics![0]
+                                                .condition,
+                                        refurbishmentWaterYear: items[index]
+                                            .refurbishment![0]
+                                            .water![0]
+                                            .maintenanceYear,
+                                        refurbishmentWaterCondition:
+                                            items[index]
+                                                .refurbishment![0]
+                                                .water![0]
+                                                .condition,
+                                        refurbishmentSewerageYear: items[index]
+                                            .refurbishment![0]
+                                            .sewerage![0]
+                                            .maintenanceYear,
+                                        refurbishmentSewerageCondition:
+                                            items[index]
+                                                .refurbishment![0]
+                                                .sewerage![0]
+                                                .condition,
+                                        refurbishmentHeatingYear: items[index]
+                                            .refurbishment![0]
+                                            .heating![0]
+                                            .maintenanceYear,
+                                        refurbishmentHeatingCondition:
+                                            items[index]
+                                                .refurbishment![0]
+                                                .heating![0]
+                                                .condition,
+                                        refurbishmentGasYear: items[index]
+                                            .refurbishment![0]
+                                            .gas![0]
+                                            .maintenanceYear,
+                                        refurbishmentGasCondition: items[index]
+                                            .refurbishment![0]
+                                            .gas![0]
+                                            .condition,
+                                        houseLongitude: items[index].longitude,
+                                        houseLatitude: items[index].latitude,
+                                      ))
                                 })
                         : Container();
                   },

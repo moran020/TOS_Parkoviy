@@ -66,20 +66,22 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
-    - assets/json/coords.json
     - assets/json/events.json
     - assets/json/houses.json
     - assets/json/locations.json
     - assets/json/organizations.json
     - assets/icons/pin_house.png
     - assets/icons/pin_event.png
-    - assets/icons/pin_intstitute.png
-    - assets/icons/pin_area.png
+    - assets/icons/pin_organization.png
+    - assets/icons/pin_location.png
     - assets/icons/events.png
     - assets/icons/houses.png
     - assets/icons/locations.png
     - assets/icons/map.png
     - assets/icons/organizations.png
+    - assets/icons/state.png
+    - assets/icons/public.png
+    - assets/icons/comm.png
     - assets/images/splashscreen.jpg
     - assets/images/backgroundimage.jpg
     - assets/images/backgroundimage1.jpg
@@ -87,6 +89,7 @@ flutter:
     - assets/images/event.jpeg
     - assets/images/location.jpeg
     - assets/images/organization.png
+    - assets/images/default_photo.png
 
 
 

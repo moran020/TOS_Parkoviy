@@ -16,13 +16,13 @@ class Locations {
     if (json['location'] != null) {
       location = <Location>[];
       json['location'].forEach((v) {
-        location!.add(new Location.fromJson(v));
+        location!.add(Location.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     if (this.location != null) {
       data['location'] = this.location!.map((v) => v.toJson()).toList();
     }
@@ -45,16 +45,16 @@ class Location {
 
   Location(
       {this.iD,
-        this.name,
-        this.type,
-        this.condition,
-        this.finance,
-        this.fullDescr,
-        this.street,
-        this.house,
-        this.longitude,
-        this.latitude,
-        this.image});
+      this.name,
+      this.type,
+      this.condition,
+      this.finance,
+      this.fullDescr,
+      this.street,
+      this.house,
+      this.longitude,
+      this.latitude,
+      this.image});
 
   Location.fromJson(Map<String, dynamic> json) {
     iD = json['ID'];
@@ -71,7 +71,7 @@ class Location {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['ID'] = this.iD;
     data['name'] = this.name;
     data['type'] = this.type;

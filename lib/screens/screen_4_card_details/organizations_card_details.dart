@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tos_parkoviy_app/components/constants.dart';
-import 'package:tos_parkoviy_app/screens/4_card_details/class_DataToMap.dart';
+import 'package:tos_parkoviy_app/components/colors.dart';
+import 'package:tos_parkoviy_app/components/class_data_to_map.dart';
 
+// Страница выбранной организации
 class OrganizationsCardDetails extends StatefulWidget {
   const OrganizationsCardDetails({Key? key}) : super(key: key);
 
@@ -17,13 +18,14 @@ class _OrganizationsCardDetailsState extends State<OrganizationsCardDetails> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text(args.organizationName),
+          title: const Text('Организация'),
           centerTitle: true,
           backgroundColor: bgColorOrganizationsAppBar,
+          // Передача данных об организации на страницу с картой
           actions: <Widget>[
             IconButton(
               icon: const Icon(
-                Icons.map,
+                Icons.pin_drop_outlined,
                 size: 30,
               ),
               onPressed: () {
@@ -41,26 +43,44 @@ class _OrganizationsCardDetailsState extends State<OrganizationsCardDetails> {
             ),
           ],
         ),
-        body: SingleChildScrollView(
-            child: Container(
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image:
-                        const AssetImage("assets/images/backgroundimage2.jpg"),
-                    fit: BoxFit.cover,
-                    colorFilter: ColorFilter.mode(
-                      Colors.white.withOpacity(0.65),
-                      BlendMode.colorDodge,
-                    ),
-                  ),
+        body: Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: const AssetImage("assets/images/backgroundimage2.jpg"),
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(
+                  Colors.white.withOpacity(0.65),
+                  BlendMode.colorDodge,
                 ),
+              ),
+            ),
+            child: SingleChildScrollView(
                 child: Container(
                     margin: const EdgeInsets.all(10),
                     child: Column(children: [
+                      // Название организации
+                      Container(
+                          width: MediaQuery.of(context).size.width * 0.95,
+                          padding: const EdgeInsets.all(15),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.white),
+                          child: Text(
+                            args.organizationName,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )),
+                      const SizedBox(height: 7),
                       Container(
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               color: Colors.white),
+                          // Таблица с данными об организации
                           child: Table(
                             children: <TableRow>[
                               TableRow(
@@ -73,7 +93,7 @@ class _OrganizationsCardDetailsState extends State<OrganizationsCardDetails> {
                                           child: Text(
                                             'Адрес',
                                             style: TextStyle(
-                                              fontSize: 18,
+                                              fontSize: 16,
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ))),
@@ -84,10 +104,10 @@ class _OrganizationsCardDetailsState extends State<OrganizationsCardDetails> {
                                           alignment: Alignment.centerLeft,
                                           child: Text(
                                             args.organizationStreet +
-                                                " " +
+                                                ", " +
                                                 args.organizationHouse,
                                             style:
-                                                const TextStyle(fontSize: 18),
+                                                const TextStyle(fontSize: 16),
                                           ))),
                                 ],
                               ),
@@ -101,7 +121,7 @@ class _OrganizationsCardDetailsState extends State<OrganizationsCardDetails> {
                                           child: Text(
                                             'Тип организации',
                                             style: TextStyle(
-                                              fontSize: 18,
+                                              fontSize: 16,
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ))),
@@ -113,18 +133,20 @@ class _OrganizationsCardDetailsState extends State<OrganizationsCardDetails> {
                                           child: Text(
                                             args.organizationType,
                                             style:
-                                                const TextStyle(fontSize: 18),
+                                                const TextStyle(fontSize: 16),
                                           ))),
                                 ],
                               ),
                             ],
                           )),
                       const SizedBox(height: 7),
+                      // Изображение
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10.0),
-                        child: Image.asset(args.organizationImage),
+                        child: Image.network(args.organizationImage),
                       ),
                       const SizedBox(height: 7),
+                      // Полное описание
                       Container(
                           width: MediaQuery.of(context).size.width * 0.95,
                           padding: const EdgeInsets.all(15),

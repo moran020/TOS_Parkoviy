@@ -1,84 +1,151 @@
 {
   "house": [
     {
-      "ID": "21",
+      "ID": "20",
       "caretaker": [
         {
-          "caretakerName": "Иван",
-          "caretakerSurname": "Ivanov",
-          "caretakerDadname": "Иванович",
-          "contact": 88001005676
+          "caretakerName": "Константин",
+          "caretakerSurname": "Шевелев",
+          "caretakerDadname": "Федорович",
+          "initials":"К. Ф.",
+          "contact": "+7 (960) 697-70-14"
         }
       ],
       "city": "Тула",
-      "street": "Льва Толстого qwe",
+      "street": "Ул. Льва Толстого",
       "house": "91",
-      "year": 1990,
-      "service_provider": "УК Дыня",
+      "year": 1983,
+      "service_provider": "УК «21ВЕК»",
       "refurbishment": [
         {
           "roof": [
             {
-              "maintenanceYear": 2020,
+              "maintenanceYear": 2015,
               "condition": true
             }
           ],
           "front": [
             {
-              "maintenanceYear": 2020,
+              "maintenanceYear": 2015,
               "condition": true
             }
           ],
           "electronics": [
             {
-              "maintenanceYear": 2020,
+              "maintenanceYear": 2015,
               "condition": true
             }
           ],
           "water": [
             {
-              "maintenanceYear": 2024,
-              "condition": false
+              "maintenanceYear": 2015,
+              "condition": true
             }
           ],
           "sewerage": [
             {
-              "maintenanceYear": 2027,
-              "condition": false
+              "maintenanceYear": 2015,
+              "condition": true
             }
           ],
           "heating": [
             {
-              "maintenanceYear": 2020,
+              "maintenanceYear": 2015,
               "condition": true
             }
           ],
           "gas": [
             {
-              "maintenanceYear": 2020,
+              "maintenanceYear": 2015,
               "condition": true
             }
           ]
         }
       ],
-      "longitude": 37.602674,
-      "latitude": 54.186991
+      "longitude": 37.603532,
+      "latitude": 54.184487
   },
+    {
+      "ID": "21",
+      "caretaker": [
+        {
+          "caretakerName": "Евгений",
+          "caretakerSurname": "Нустров",
+          "caretakerDadname": "Васильевич",
+          "initials":"Е. В.",
+          "contact": "+7 (945) 707-59-31"
+        }
+      ],
+      "city": "Тула",
+      "street": "Ул. Льва Толстого",
+      "house": "93",
+      "year": 1977,
+      "service_provider": "УК «Арсенал»",
+      "refurbishment": [
+        {
+          "roof": [
+            {
+              "maintenanceYear": 2015,
+              "condition": true
+            }
+          ],
+          "front": [
+            {
+              "maintenanceYear": 2015,
+              "condition": true
+            }
+          ],
+          "electronics": [
+            {
+              "maintenanceYear": 2015,
+              "condition": true
+            }
+          ],
+          "water": [
+            {
+              "maintenanceYear": 2015,
+              "condition": true
+            }
+          ],
+          "sewerage": [
+            {
+              "maintenanceYear": 2015,
+              "condition": true
+            }
+          ],
+          "heating": [
+            {
+              "maintenanceYear": 2015,
+              "condition": true
+            }
+          ],
+          "gas": [
+            {
+              "maintenanceYear": 2015,
+              "condition": true
+            }
+          ]
+        }
+      ],
+      "longitude": 37.602687,
+      "latitude": 54.184856
+    },
     {
       "ID": "22",
       "caretaker": [
         {
-          "caretakerName": "Petr",
-          "caretakerSurname": "Петров",
-          "caretakerDadname": "Петрович",
-          "contact": 88002005676
+          "caretakerName": "Ульяна",
+          "caretakerSurname": "Мартьянова",
+          "caretakerDadname": "Макаровна",
+          "initials":"У. М.",
+          "contact": "+7 (907) 434-48-90"
         }
       ],
-      "city": "Tyla",
-      "street": "Льва Толстого",
-      "house": "93",
-      "year": 1890,
-      "service_provider": "УК Дыня",
+      "city": "Тула",
+      "street": "Ул. Фридриха Энгельса",
+      "house": "54",
+      "year": 1980      ,
+      "service_provider": "УК «21ВЕК»",
       "refurbishment": [
         {
           "roof": [
@@ -89,32 +156,97 @@
           ],
           "front": [
             {
-              "maintenanceYear": 2021,
-              "condition": true
+              "maintenanceYear": 2023,
+              "condition": false
             }
           ],
           "electronics": [
             {
-              "maintenanceYear": 2021,
+              "maintenanceYear": 2022,
               "condition": true
             }
           ],
           "water": [
             {
-              "maintenanceYear": 2024,
-              "condition": false
+              "maintenanceYear": 2022,
+              "condition": true
             }
           ],
           "sewerage": [
             {
-              "maintenanceYear": 2018,
+              "maintenanceYear": 2023,
+              "condition": false
+            }
+          ],
+          "heating": [
+            {
+              "maintenanceYear": 2023,
+              "condition": false
+            }
+          ],
+          "gas": [
+            {
+              "maintenanceYear": 2022,
+              "condition": true
+            }
+          ]
+        }
+      ],
+      "longitude": 37.601996,
+      "latitude": 54.183154 
+    },
+    {
+      "ID": "23",
+      "caretaker": [
+        {
+          "caretakerName": "Юлия",
+          "caretakerSurname": "Борева",
+          "caretakerDadname": "Степановна",
+          "initials":"Ю. С.",
+          "contact": "+7 (991) 996-48-13"
+        }
+      ],
+      "city": "Тула",
+      "street": "Ул. Первомайская",
+      "house": "14А",
+      "year": 1980,
+      "service_provider": "УК «Арсенал»",
+      "refurbishment": [
+        {
+          "roof": [
+            {
+              "maintenanceYear": 2020,
+              "condition": true
+            }
+          ],
+          "front": [
+            {
+              "maintenanceYear": 2020,
+              "condition": true
+            }
+          ],
+          "electronics": [
+            {
+              "maintenanceYear": 2020,
+              "condition": true
+            }
+          ],
+          "water": [
+            {
+              "maintenanceYear": 2020,
+              "condition": true
+            }
+          ],
+          "sewerage": [
+            {
+              "maintenanceYear": 2020,
               "condition": true
             }
           ],
           "heating": [
             {
-              "maintenanceYear": 2026,
-              "condition": false
+              "maintenanceYear": 2020,
+              "condition": true
             }
           ],
           "gas": [
@@ -125,60 +257,61 @@
           ]
         }
       ],
-      "longitude": 37.602784,
-      "latitude": 54.189846
+      "longitude": 37.601178,
+      "latitude": 54.183486
     },
     {
-      "ID": "23",
+      "ID": "24",
       "caretaker": [
         {
-          "caretakerName": "Сидр",
-          "caretakerSurname": "Сидоров",
-          "caretakerDadname": "Sidirivich",
-          "contact": 88003005676
+          "caretakerName": "Даниил",
+          "caretakerSurname": "Чиркаш",
+          "caretakerDadname": "Максимович",
+          "initials":"Д. М.",
+          "contact": "+7 (960) 756-17-70"
         }
       ],
       "city": "Тула",
-      "street": "Льва Толстого",
-      "house": "105",
-      "year": 1790,
-      "service_provider": "УК Дыня",
+      "street": "Ул. Первомайская",
+      "house": "18А",
+      "year": 1985,
+      "service_provider": "УК «Арсенал»",
       "refurbishment": [
         {
           "roof": [
             {
-              "maintenanceYear": 2021,
-              "condition": true
+              "maintenanceYear": 2025,
+              "condition": false
             }
           ],
           "front": [
             {
-              "maintenanceYear": 2019,
-              "condition": true
+              "maintenanceYear": 2025,
+              "condition": false
             }
           ],
           "electronics": [
             {
-              "maintenanceYear": 2020,
-              "condition": true
+              "maintenanceYear": 2025,
+              "condition": false
             }
           ],
           "water": [
             {
-              "maintenanceYear": 2021,
-              "condition": true
+              "maintenanceYear": 2025,
+              "condition": false
             }
           ],
           "sewerage": [
             {
-              "maintenanceYear": 2028,
+              "maintenanceYear": 2025,
               "condition": false
             }
           ],
           "heating": [
             {
-              "maintenanceYear": 2020,
-              "condition": true
+              "maintenanceYear": 2025,
+              "condition": false
             }
           ],
           "gas": [
@@ -189,72 +322,333 @@
           ]
         }
       ],
-      "longitude": 37.602947,
-      "latitude": 54.180947
+      "longitude": 37.599462,
+      "latitude": 54.184098
     },
     {
-      "ID": "24",
+      "ID": "25",
       "caretaker": [
         {
-          "caretakerName": "Федр",
-          "caretakerSurname": "Федоров",
-          "caretakerDadname": "Федорович",
-          "contact": 88004005676
+          "caretakerName": "Раиса",
+          "caretakerSurname": "Коллерова",
+          "caretakerDadname": "Тимофеевна",
+          "initials":"Р. Т.",
+          "contact": "+7 (971) 711-95-22"
         }
       ],
       "city": "Тула",
-      "street": "Льва Толстого",
-      "house": "111",
-      "year": 1690,
-      "service_provider": "УК Дыня",
+      "street": "Ул. Свободы",
+      "house": "38А",
+      "year": 1990,
+      "service_provider": "УК «21ВЕК»",
       "refurbishment": [
         {
           "roof": [
             {
-              "maintenanceYear": 2020,
+              "maintenanceYear": 2025,
+              "condition": false
+            }
+          ],
+          "front": [
+            {
+              "maintenanceYear": 2025,
+              "condition": false
+            }
+          ],
+          "electronics": [
+            {
+              "maintenanceYear": 2025,
+              "condition": false
+            }
+          ],
+          "water": [
+            {
+              "maintenanceYear": 2025,
+              "condition": false
+            }
+          ],
+          "sewerage": [
+            {
+              "maintenanceYear": 2025,
+              "condition": false
+            }
+          ],
+          "heating": [
+            {
+              "maintenanceYear": 2025,
+              "condition": false
+            }
+          ],
+          "gas": [
+            {
+              "maintenanceYear": 2025,
+              "condition": false
+            }
+          ]
+        }
+      ],
+      "longitude": 37.601969,
+      "latitude": 54.187074
+    },
+    {
+      "ID": "26",
+      "caretaker": [
+        {
+          "caretakerName": "Геннадий",
+          "caretakerSurname": "Голубев",
+          "caretakerDadname": "Викторович",
+          "initials":"Г. В.",
+          "contact": "+7 (955) 326-32-44"
+        }
+      ],
+      "city": "Тула",
+      "street": "Ул. Софьи Перовской",
+      "house": "22",
+      "year": 1986      ,
+      "service_provider": "УК «Аксиома»",
+      "refurbishment": [
+        {
+          "roof": [
+            {
+              "maintenanceYear": 2023,
+              "condition": false
+            }
+          ],
+          "front": [
+            {
+              "maintenanceYear": 2023,
+              "condition": false
+            }
+          ],
+          "electronics": [
+            {
+              "maintenanceYear": 2023,
+              "condition": false
+            }
+          ],
+          "water": [
+            {
+              "maintenanceYear": 2023,
+              "condition": false
+            }
+          ],
+          "sewerage": [
+            {
+              "maintenanceYear": 2023,
+              "condition": false
+            }
+          ],
+          "heating": [
+            {
+              "maintenanceYear": 2023,
+              "condition": false
+            }
+          ],
+          "gas": [
+            {
+              "maintenanceYear": 2023,
+              "condition": false
+            }
+          ]
+        }
+      ],
+      "longitude": 37.598753,
+      "latitude": 54.188481
+    },
+    {
+      "ID": "27",
+      "caretaker": [
+        {
+          "caretakerName": "Таисия",
+          "caretakerSurname": "Хуторская",
+          "caretakerDadname": "Андреевна",
+          "initials":"Т. А.",
+          "contact": "+7 (945) 181-15-64"
+        }
+      ],
+      "city": "Тула",
+      "street": "Ул. Бундурина",
+      "house": "31",
+      "year": 2005,
+      "service_provider": "УК «Аксиома»",
+      "refurbishment": [
+        {
+          "roof": [
+            {
+              "maintenanceYear": 2035,
+              "condition": false
+            }
+          ],
+          "front": [
+            {
+              "maintenanceYear": 2035,
+              "condition": false
+            }
+          ],
+          "electronics": [
+            {
+              "maintenanceYear": 2035,
+              "condition": false
+            }
+          ],
+          "water": [
+            {
+              "maintenanceYear": 2035,
+              "condition": false
+            }
+          ],
+          "sewerage": [
+            {
+              "maintenanceYear": 2035,
+              "condition": false
+            }
+          ],
+          "heating": [
+            {
+              "maintenanceYear": 2035,
+              "condition": false
+            }
+          ],
+          "gas": [
+            {
+              "maintenanceYear": 2035,
+              "condition": false
+            }
+          ]
+        }
+      ],
+      "longitude": 37.601448,
+      "latitude": 54.187443
+    },
+    {
+      "ID": "28",
+      "caretaker": [
+        {
+          "caretakerName": "Владимир",
+          "caretakerSurname": "Кузарин",
+          "caretakerDadname": "Кириллович",
+          "initials":"В. К.",
+          "contact": "+7 (952) 242-30-52"
+        }
+      ],
+      "city": "Тула",
+      "street": "Ул. Гоголевская",
+      "house": "55А",
+      "year": 1983,
+      "service_provider": "УК «Арсенал»",
+      "refurbishment": [
+        {
+          "roof": [
+            {
+              "maintenanceYear": 2022,
               "condition": true
             }
           ],
           "front": [
             {
-              "maintenanceYear": 2014,
+              "maintenanceYear": 2022,
               "condition": true
             }
           ],
           "electronics": [
             {
-              "maintenanceYear": 2020,
-              "condition": true
+              "maintenanceYear": 2022,
+              "condition": false
             }
           ],
           "water": [
             {
-              "maintenanceYear": 2021,
-              "condition": true
+              "maintenanceYear": 2022,
+              "condition": false
             }
           ],
           "sewerage": [
             {
-              "maintenanceYear": 2019,
-              "condition": true
+              "maintenanceYear": 2022,
+              "condition": false
             }
           ],
           "heating": [
             {
-              "maintenanceYear": 2016,
-              "condition": true
+              "maintenanceYear": 2022,
+              "condition": false
             }
           ],
           "gas": [
             {
-              "maintenanceYear": 2019,
-              "condition": true
+              "maintenanceYear": 2022,
+              "condition": false
             }
           ]
         }
       ],
-      "longitude": 37.604998,
-      "latitude": 54.182346
+      "longitude": 37.604385,
+      "latitude": 54.186458
+    },
+    {
+      "ID": "29",
+      "caretaker": [
+        {
+          "caretakerName": "Любовь",
+          "caretakerSurname": "Дворянкина",
+          "caretakerDadname": "Петровна",
+          "initials":"Л. П.",
+          "contact": "+7 (932) 783-49-63"
+        }
+      ],
+      "city": "Тула",
+      "street": "Ул. Гоголевская",
+      "house": "81",
+      "year": 2010,
+      "service_provider": "УК «Арсенал»",
+      "refurbishment": [
+        {
+          "roof": [
+            {
+              "maintenanceYear": 2040,
+              "condition": false
+            }
+          ],
+          "front": [
+            {
+              "maintenanceYear": 2040,
+              "condition": false
+            }
+          ],
+          "electronics": [
+            {
+              "maintenanceYear": 2040,
+              "condition": false
+            }
+          ],
+          "water": [
+            {
+              "maintenanceYear": 2040,
+              "condition": false
+            }
+          ],
+          "sewerage": [
+            {
+              "maintenanceYear": 2040,
+              "condition": false
+            }
+          ],
+          "heating": [
+            {
+              "maintenanceYear": 2040,
+              "condition": false
+            }
+          ],
+          "gas": [
+            {
+              "maintenanceYear": 2040,
+              "condition": false
+            }
+          ]
+        }
+      ],
+      "longitude": 37.597980,
+      "latitude": 54.188634
     }
   ]
 }

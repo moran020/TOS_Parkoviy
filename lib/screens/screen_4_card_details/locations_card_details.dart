@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tos_parkoviy_app/components/constants.dart';
-import 'package:tos_parkoviy_app/screens/4_card_details/class_DataToMap.dart';
+import 'package:tos_parkoviy_app/components/colors.dart';
+import 'package:tos_parkoviy_app/components/class_data_to_map.dart';
 
+// Страница выбранного пространства
 class LocationsCardDetails extends StatefulWidget {
   const LocationsCardDetails({Key? key}) : super(key: key);
 
@@ -16,13 +17,14 @@ class _LocationsCardDetailsState extends State<LocationsCardDetails> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text(args.locationName),
+          title: const Text('Пространство'),
           centerTitle: true,
           backgroundColor: bgColorPlacesAppBar,
+          // Передача данных о пространстве на страницу с картой
           actions: <Widget>[
             IconButton(
               icon: const Icon(
-                Icons.map,
+                Icons.pin_drop_outlined,
                 size: 30,
               ),
               onPressed: () {
@@ -40,26 +42,44 @@ class _LocationsCardDetailsState extends State<LocationsCardDetails> {
             ),
           ],
         ),
-        body: SingleChildScrollView(
-            child: Container(
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image:
-                        const AssetImage("assets/images/backgroundimage2.jpg"),
-                    fit: BoxFit.cover,
-                    colorFilter: ColorFilter.mode(
-                      Colors.white.withOpacity(0.65),
-                      BlendMode.colorDodge,
-                    ),
-                  ),
+        body: Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: const AssetImage("assets/images/backgroundimage2.jpg"),
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(
+                  Colors.white.withOpacity(0.65),
+                  BlendMode.colorDodge,
                 ),
+              ),
+            ),
+            child: SingleChildScrollView(
                 child: Container(
                     margin: const EdgeInsets.all(10),
                     child: Column(children: [
+                      // Название пространства
+                      Container(
+                          width: MediaQuery.of(context).size.width * 0.95,
+                          padding: const EdgeInsets.all(15),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.white),
+                          child: Text(
+                            args.locationName,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )),
+                      const SizedBox(height: 7),
                       Container(
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               color: Colors.white),
+                          // Таблица с данными о пространстве
                           child: Table(
                             children: <TableRow>[
                               TableRow(
@@ -72,7 +92,7 @@ class _LocationsCardDetailsState extends State<LocationsCardDetails> {
                                           child: Text(
                                             'Адрес',
                                             style: TextStyle(
-                                              fontSize: 18,
+                                              fontSize: 16,
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ))),
@@ -83,10 +103,11 @@ class _LocationsCardDetailsState extends State<LocationsCardDetails> {
                                           alignment: Alignment.centerLeft,
                                           child: Text(
                                             args.locationStreet +
-                                                ' ' +
+                                                ', ' +
                                                 args.locationHouse,
-                                            style:
-                                                const TextStyle(fontSize: 18),
+                                            style: const TextStyle(
+                                              fontSize: 16,
+                                            ),
                                           ))),
                                 ],
                               ),
@@ -100,7 +121,7 @@ class _LocationsCardDetailsState extends State<LocationsCardDetails> {
                                           child: Text(
                                             'Тип пространства',
                                             style: TextStyle(
-                                              fontSize: 18,
+                                              fontSize: 16,
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ))),
@@ -111,8 +132,9 @@ class _LocationsCardDetailsState extends State<LocationsCardDetails> {
                                           alignment: Alignment.centerLeft,
                                           child: Text(
                                             args.locationType,
-                                            style:
-                                                const TextStyle(fontSize: 18),
+                                            style: const TextStyle(
+                                              fontSize: 16,
+                                            ),
                                           ))),
                                 ],
                               ),
@@ -126,7 +148,7 @@ class _LocationsCardDetailsState extends State<LocationsCardDetails> {
                                           child: Text(
                                             'Состояние',
                                             style: TextStyle(
-                                              fontSize: 18,
+                                              fontSize: 16,
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ))),
@@ -137,8 +159,9 @@ class _LocationsCardDetailsState extends State<LocationsCardDetails> {
                                           alignment: Alignment.centerLeft,
                                           child: Text(
                                             args.locationCondition,
-                                            style:
-                                                const TextStyle(fontSize: 18),
+                                            style: const TextStyle(
+                                              fontSize: 16,
+                                            ),
                                           ))),
                                 ],
                               ),
@@ -152,7 +175,7 @@ class _LocationsCardDetailsState extends State<LocationsCardDetails> {
                                           child: Text(
                                             'Источник финансирования',
                                             style: TextStyle(
-                                              fontSize: 18,
+                                              fontSize: 16,
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ))),
@@ -164,19 +187,22 @@ class _LocationsCardDetailsState extends State<LocationsCardDetails> {
                                           alignment: Alignment.centerLeft,
                                           child: Text(
                                             args.locationFinance,
-                                            style:
-                                                const TextStyle(fontSize: 18),
+                                            style: const TextStyle(
+                                              fontSize: 16,
+                                            ),
                                           ))),
                                 ],
                               ),
                             ],
                           )),
                       const SizedBox(height: 7),
+                      // Изображение
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10.0),
-                        child: Image.asset(args.locationImage),
+                        child: Image.network(args.locationImage),
                       ),
                       const SizedBox(height: 7),
+                      // Полное описание
                       Container(
                           width: MediaQuery.of(context).size.width * 0.95,
                           padding: const EdgeInsets.all(15),

@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:tos_parkoviy_app/components/constants.dart';
-import 'package:tos_parkoviy_app/components/locations_fromJson.dart';
-// import 'package:tos_parkoviy_app/screens/2_homescreen.dart';
-import '../../components/locations_fromJson.dart';
-import '../4_card_details/class_DataToMap.dart';
+import 'package:tos_parkoviy_app/components/colors.dart';
+import 'package:tos_parkoviy_app/components/events_from_json.dart';
+import '../../components/events_from_json.dart';
+import '../../components/class_data_to_map.dart';
 
-class CatalogLocations extends StatelessWidget {
-  // late final Data data;
+// Список мероприятий
+class CatalogEvents extends StatelessWidget {
+  const CatalogEvents({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // RouteSettings settings = ModalRoute.of(context)!.settings;
-    // data = settings.arguments as Data;
-
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Пространства'),
+          title: const Text('Мероприятия'),
           centerTitle: true,
-          backgroundColor: bgColorPlacesAppBar,
+          backgroundColor: bgColorEventsAppBar,
         ),
         resizeToAvoidBottomInset: false,
         body: Container(
@@ -27,40 +24,36 @@ class CatalogLocations extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            child: CatalogLocationsList()));
+            child: const CatalogEventsList()));
   }
 }
 
-class CatalogLocationsList extends StatefulWidget {
-  const CatalogLocationsList({
+class CatalogEventsList extends StatefulWidget {
+  const CatalogEventsList({
     Key? key,
   }) : super(key: key);
 
   @override
-  _CatalogLocationsListState createState() => _CatalogLocationsListState();
+  _CatalogEventsListState createState() => _CatalogEventsListState();
 }
 
-class _CatalogLocationsListState extends State<CatalogLocationsList> {
+class _CatalogEventsListState extends State<CatalogEventsList> {
   final _searchController = TextEditingController();
   String searchString = "";
 
-  late Future<Locations> futureData;
+  late Future<Events> futureData;
 
   @override
   void initState() {
     super.initState();
-    futureData = getLocationsList();
+    futureData = getEventsList();
   }
-
-  // late Data data;
-  // late final DataToCard colorappbar;
 
   @override
   Widget build(BuildContext context) {
-    // RouteSettings settings = ModalRoute.of(context)!.settings;
-    // data = settings.arguments as Data;
     return Column(
       children: [
+        // Поле поиска
         Align(
           alignment: Alignment.topCenter,
           child: Container(
@@ -85,9 +78,7 @@ class _CatalogLocationsListState extends State<CatalogLocationsList> {
                   IconButton(
                     icon: const Icon(Icons.search),
                     color: Colors.black45,
-                    onPressed: () {
-                      // widget.parentCallback(cityController.text);
-                    },
+                    onPressed: () {},
                   ),
                   Expanded(
                     child: TextField(
@@ -105,6 +96,7 @@ class _CatalogLocationsListState extends State<CatalogLocationsList> {
                 ]),
           ),
         ),
+        // Список в соответствии с запросом (по умолчанию запрос пустой)
         Expanded(
           child: FutureBuilder(
             future: futureData,
@@ -112,8 +104,8 @@ class _CatalogLocationsListState extends State<CatalogLocationsList> {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
               } else if (data.hasData) {
-                var locations = data.data as Locations;
-                var items = locations.location as List<Location>;
+                var events = data.data as Events;
+                var items = events.event as List<Event>;
 
                 return ListView.builder(
                   padding: const EdgeInsets.only(
@@ -121,15 +113,15 @@ class _CatalogLocationsListState extends State<CatalogLocationsList> {
                   itemCount: items.length,
                   itemBuilder: (_, index) {
                     return items[index]
-                                .condition!
+                                .eventName!
                                 .toLowerCase()
                                 .contains(searchString) ||
                             items[index]
-                                .name!
+                                .place!
                                 .toLowerCase()
                                 .contains(searchString) ||
                             items[index]
-                                .street!
+                                .date!
                                 .toLowerCase()
                                 .contains(searchString)
                         ? GestureDetector(
@@ -148,6 +140,7 @@ class _CatalogLocationsListState extends State<CatalogLocationsList> {
                                   ),
                                 ],
                               ),
+                              // Карточка мероприятия
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -161,7 +154,7 @@ class _CatalogLocationsListState extends State<CatalogLocationsList> {
                                         margin: const EdgeInsets.only(
                                             right: 18, left: 15),
                                         decoration: const BoxDecoration(
-                                          color: bgColorPlaces,
+                                          color: bgColorEvents,
                                           borderRadius: BorderRadius.all(
                                               Radius.circular(10)),
                                         ),
@@ -172,46 +165,47 @@ class _CatalogLocationsListState extends State<CatalogLocationsList> {
                                               CrossAxisAlignment.center,
                                           children: [
                                             Text(
-                                              "Состояние: " +
-                                                  items[index]
-                                                      .condition
-                                                      .toString(),
+                                              items[index].date.toString(),
                                               textAlign: TextAlign.center,
                                               style: const TextStyle(
-                                                fontSize: 10,
+                                                fontSize: 12,
                                               ),
                                             ),
                                           ],
                                         ),
                                       ),
-                                      Padding(
+                                      Container(
+                                        width: 215,
                                         padding: const EdgeInsets.only(
-                                            right: 10,
-                                            // left: 20,
-                                            top: 15,
-                                            bottom: 15),
+                                            right: 10, top: 15, bottom: 15),
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              items[index].name.toString(),
+                                              items[index].eventName.toString(),
                                               style: const TextStyle(
-                                                fontSize: 16,
-                                              ),
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold,
+                                                  overflow: TextOverflow.clip),
+                                            ),
+                                            const SizedBox(
+                                              height: 2,
                                             ),
                                             Text(
-                                              items[index].street.toString() +
-                                                  " " +
-                                                  items[index].house.toString(),
-                                              style:
-                                                  const TextStyle(fontSize: 14),
-                                            ),
+                                                "Место проведения: " +
+                                                    items[index]
+                                                        .place
+                                                        .toString(),
+                                                style: const TextStyle(
+                                                    fontSize: 14),
+                                                overflow: TextOverflow.clip),
                                           ],
                                         ),
                                       ),
                                     ],
                                   ),
+                                  // Кнопка перехода в следующий раздел
                                   Column(
                                     children: [
                                       Container(
@@ -233,24 +227,23 @@ class _CatalogLocationsListState extends State<CatalogLocationsList> {
                                 ],
                               ),
                             ),
+                            // Передача информации о выбранном доме в следующий раздел
                             onTap: () => {
-                              Navigator.pushNamed(
-                                  context, '/location_card_details',
-                                  arguments: DataToMap(
-                                    bgcolor: bgColorPlacesAppBar,
-                                    locationName: items[index].name,
-                                    locationType: items[index].type,
-                                    locationCondition: items[index].condition,
-                                    locationFinance: items[index].finance,
-                                    locationFullDescr: items[index].fullDescr,
-                                    locationStreet: items[index].street,
-                                    locationHouse: items[index].house,
-                                    locationImage: items[index].image,
-                                    locationLongitude: items[index].longitude,
-                                    locationLatitude: items[index].latitude,
-                                  )
-                              )
-                            })
+                                  Navigator.pushNamed(
+                                      context, '/event_card_details',
+                                      arguments: DataToMap(
+                                        bgcolor: bgColorEventsAppBar,
+                                        eventName: items[index].eventName,
+                                        eventDesc: items[index].description,
+                                        eventType: items[index].eventType,
+                                        eventPlace: items[index].place,
+                                        eventDate: items[index].date,
+                                        eventTime: items[index].time,
+                                        eventImg: items[index].image,
+                                        eventLongitude: items[index].longitude,
+                                        eventLatitude: items[index].latitude,
+                                      ))
+                                })
                         : Container();
                   },
                 );

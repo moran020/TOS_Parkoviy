@@ -16,13 +16,13 @@ class Organizations {
     if (json['organization'] != null) {
       organization = <Organization>[];
       json['organization'].forEach((v) {
-        organization!.add(new Organization.fromJson(v));
+        organization!.add(Organization.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     if (this.organization != null) {
       data['organization'] = this.organization!.map((v) => v.toJson()).toList();
     }
@@ -34,6 +34,7 @@ class Organization {
   String? iD;
   String? name;
   String? type;
+  String? abbreviation;
   String? shortDescr;
   String? longDescr;
   String? street;
@@ -44,20 +45,22 @@ class Organization {
 
   Organization(
       {this.iD,
-        this.name,
-        this.type,
-        this.shortDescr,
-        this.longDescr,
-        this.street,
-        this.house,
-        this.longitude,
-        this.latitude,
-        this.image});
+      this.name,
+      this.type,
+      this.abbreviation,
+      this.shortDescr,
+      this.longDescr,
+      this.street,
+      this.house,
+      this.longitude,
+      this.latitude,
+      this.image});
 
   Organization.fromJson(Map<String, dynamic> json) {
     iD = json['ID'];
     name = json['name'];
     type = json['type'];
+    abbreviation = json['abbreviation'];
     shortDescr = json['short_descr'];
     longDescr = json['long_descr'];
     street = json['street'];
@@ -68,10 +71,11 @@ class Organization {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['ID'] = this.iD;
     data['name'] = this.name;
     data['type'] = this.type;
+    data['abbreviation'] = this.abbreviation;
     data['short_descr'] = this.shortDescr;
     data['long_descr'] = this.longDescr;
     data['street'] = this.street;

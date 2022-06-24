@@ -1,79 +1,155 @@
 {"event":[{
-    "ID": "11",
-    "eventName" : "name1",
-    "eventType" : [{
-        "culture":true,
-        "sport":false,
-        "education":true,
-        "ecology":false,
-        "family":true,
-        "voluntiiring":false
+    "ID": "10",
+    "eventName": "Урок английского языка",
+    "eventType": [{
+        "culture": false,
+        "sport": false,
+        "education": true,
+        "ecology": false,
+        "family": false,
+        "voluntiiring": false
     }],
-    "description": "Мероприятие такое-те",
-    "place":"Место1",
-    "date": "15 мая 2022",
-    "time": "13:00",
-    "longitude": 37.701767,
-    "latitude": 54.208625,
-    "image": "assets/images/event.jpeg"
+    "description": "Бесплатный урок английского языка в игровой форме с Языковой школой ILS ТУЛА в детском городке Центрального парка Тулы.",
+    "place":"Детский городок ЦПКиО им. Белоусова ",
+    "date": "25 июня 2022",
+    "time": "12:30",
+    "longitude": 37.586517,
+    "latitude": 54.181016,
+    "image": "https://img.freepik.com/free-photo/children-hold-a-lesson-with-the-teacher-in-the-park-on-a-green-lawn_110955-137.jpg"
+},
+    {
+        "ID": "11",
+    "eventName": "Акция по сбору вторсырья",
+    "eventType": [{
+        "culture": false,
+        "sport": false,
+        "education": false,
+        "ecology": false,
+        "family": false,
+        "voluntiiring":true
+    }],
+    "description": "25 июня пройдет акция по сбору вторсырья. Подробности: https://vk.com/ecomobil71",
+    "place":"Ул. Льва Толстого, 93",
+    "date": "25 июня 2022",
+    "time": "12:00",
+    "longitude": 37.603144,
+    "latitude": 54.184668,
+    "image": "https://pchela.news/storage/app/uploads/public/627/e16/019/627e16019e3d8625149657.jpeg"
 },
 
-{
-    "ID": "12",
-    "eventName" : "name2",
-    "eventType" : [{
-        "culture":true,
-        "sport":false,
-        "education":true,
-        "ecology":false,
-        "family":true,
-        "voluntiiring":false
+    {"ID": "12",
+    "eventName": "Флешмоб «Русь танцевальная»",
+    "eventType": [{
+        "culture": true,
+        "sport": true,
+        "education": false,
+        "ecology": false,
+        "family": true,
+        "voluntiiring": false
     }],
-    "description": "Мероприятие такое-то, то то то то то то то то",
-    "place":"Место2",
-    "date": "15 мая 2022",
+    "description": "Молодежь городов России и мира объединится, чтобы станцевать русский народный танец. В Туле пляски в этом году пройдут в Центральном парке Тулы. В День России 12 июня, ровно в 12:00 видеосвязь компании соединит города и души в формате прямого эфира. Участие можно принять и в живую, и виртуально: присоединиться к конференции можно из любой точки мира. ",
+    "place":"ЦПКиО им. Белоусова",
+    "date": "12 июня 2022",
+    "time": "12:00",
+    "longitude": 37.588875,
+    "latitude": 54.179351,
+    "image": "https://s13.stc.yc.kpcdn.net/share/i/12/12545508/wr-960.webp"
+},
+
+    {"ID": "13",
+    "eventName": "Йога в парке",
+    "eventType": [{
+        "culture": false,
+        "sport": true,
+        "education": false,
+        "ecology": false,
+        "family": false,
+        "voluntiiring": false
+    }],
+    "description": "Йога на свежем воздухе в парке им. Белоусова, занятие проводит Надежда Макарова. Приходите!",
+    "place":"ЦПКиО им. Белоусова",
+    "date": "16 июня 2022",
+    "time": "09:00",
+    "longitude": 37.581737,
+    "latitude": 54.179630,
+    "image": "https://sun9-70.userapi.com/impf/T4mT8RQ1HMqiqnoqvjbdNnaEu_VpaU6eVahCRA/n4B5U9R8dh8.jpg?size=1280x960&quality=96&sign=c677f0843ae5f2c6aa643cc4ca86aed0&type=album"
+},
+
+    {"ID": "14",
+    "eventName": "Велофест «Лев Толстой»",
+    "eventType": [{
+        "culture": true,
+        "sport": true,
+        "education": false,
+        "ecology": false,
+        "family": false,
+        "voluntiiring": false
+    }],
+    "description": "Скоро состоится велофест «Лев Толстой». Регистрируйся! Приглашай друзей! Участвуй в конкурсе репостов! Подробности: https://vk.com/71velo ",
+    "place":"ЦПКиО им. Белоусова, главная сцена ",
+    "date": "4 июня 2022",
     "time": "10:00",
-    "longitude": 36.604532,
-    "latitude": 53.196765,
-    "image": "assets/images/event.jpeg"
+    "longitude": 37.592793,
+    "latitude": 54.182570,
+    "image": "https://sun9-34.userapi.com/impf/Z3s20oL7UlBfWFyRCC1N4IxRYkPZiGE1DMIXcA/SLxwiwCATE0.jpg?size=1080x1047&quality=95&sign=741b5aa8edefe1278d30830fa6d8c495&type=album"
 },
 
-{
-    "ID": "13",
-    "eventName" : "name3",
-    "eventType" : [{
-        "culture":true,
-        "sport":false,
-        "education":true,
-        "ecology":false,
-        "family":true,
-        "voluntiiring":false
+    {"ID": "15",    
+    "eventName": "Акция по сбору вторсырья",
+    "eventType": [{
+        "culture": false,
+        "sport": false,
+        "education": false,
+        "ecology": false,
+        "family": false,
+        "voluntiiring":true
     }],
-    "description": "Мероприятие такое-те",
-    "place":"Место3",
-    "date": "Дата3",
-    "time": "Время3",
-    "longitude": 35.601574,
-    "latitude": 55.187525,
-    "image": "assets/images/event.jpeg"
+    "description": "25 мая пройдет акция по сбору вторсырья. Подробности: https://vk.com/ecomobil71",
+    "place":"Ул. Льва Толстого, 93",
+    "date": "25 мая 2022",
+    "time": "12:00",
+    "longitude": 37.603144,
+    "latitude": 54.184668,
+    "image": "https://pchela.news/storage/app/uploads/public/627/e16/019/627e16019e3d8625149657.jpeg"
 },
-{
-    "ID": "14",
-    "eventName" : "name4",
-    "eventType" : [{
+
+    {"ID": "16",
+    "eventName": "Открытие отделения «Мой семейный центр»",
+    "eventType": [{
         "culture":true,
         "sport":false,
-        "education":true,
+        "education":false,
         "ecology":false,
-        "family":true,
+        "family":false,
         "voluntiiring":false
     }],
-    "description": "Мероприятие такое-те",
-    "place":"Место4",
-    "date": "Дата4",
-    "time": "Время4",
-    "longitude": 37.502600,
-    "latitude": 54.186793,
-    "image": "assets/images/event.jpeg"
+    "description": "В «ТОС Парковый», в доме 71 по улице Гоголевской, откроектся флагманское отделение проекта «Мой семейный центр». Заместитель председателя правительства Тульской области Ольга Гремякова посетит церемонию открытия. По поручению Губернатора Алексея Дюмина проект вошел в план действий правительства Тульской области по реализации основных направлений деятельности правительства Тульской области на период до 2026 года и является одними из приоритетных направлений программы «Люди: качество ежедневной жизни». Алексей Дюмин уделяет поддержке семей с детьми особое внимание: «Мой семейный центр – один из главных проектов региона в этой сфере. В декабре он был представлен Президенту России и получил высокую оценку. Проект вошел в число лучших практик и рекомендован АСИ для внедрения в регионах страны». Сотрудники центра консультируют людей в онлайн- и офлайн- режимах. На его базе специалистов проекта обучают новым технологиям работы с семьей, для этого оформлены зоны коворкинга. В флагманском центре можно решить такие вопросы, как улучшение жилищных условий, взыскание алиментов, оформление мер социальной поддержки и заключение социального контракта, урегулирование семейных споров и улучшение отношений между детьми и родителями и т.д. По модели флагманского центра в дальнейшем будет перестроена работа всех 26 отделений в муниципалитетах.",
+    "place":"Ул. Гоголевская, 71",
+    "date": "9 марта  2022",
+    "time": "15:00",
+    "longitude": 37.598798,
+    "latitude": 54.189240,
+    "image": "https://sun9-86.userapi.com/impg/Ag7xRhdsjlGN1q5_eTA9aJw_91wZs5Di0IKkEg/gHBvuAhUMYg.jpg?size=1800x1200&quality=96&sign=9cd913615694da0af2af68f1b5ad15eb&type=album"
+},
+
+    {"ID": "17",    
+    "eventName": "Акция по сбору вторсырья",
+    "eventType": [{
+        "culture": false,
+        "sport": false,
+        "education": false,
+        "ecology": false,
+        "family": false,
+        "voluntiiring":true
+    }],
+    "description": "14 февраля пройдет акция по сбору вторсырья. Подробности: https://vk.com/ecomobil71",
+    "place":"Ул. Льва Толстого, 93",
+    "date": "14 февр. 2022",
+    "time": "12:00",
+    "longitude": 37.603144,
+    "latitude": 54.184668,
+    "image": "https://pchela.news/storage/app/uploads/public/627/e16/019/627e16019e3d8625149657.jpeg"
 }
 ]}
+
+

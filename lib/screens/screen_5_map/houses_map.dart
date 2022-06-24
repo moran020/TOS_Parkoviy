@@ -1,46 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:tos_parkoviy_app/screens/4_card_details/class_DataToMap.dart';
+import 'package:tos_parkoviy_app/components/class_data_to_map.dart';
 import 'dart:async';
 
-class LocationMap extends StatefulWidget {
-  const LocationMap({Key? key}) : super(key: key);
+// Карта с маркером дома
+class HouseMap extends StatefulWidget {
+  const HouseMap({Key? key}) : super(key: key);
 
   @override
-  State<LocationMap> createState() => _LocationMapState();
+  State<HouseMap> createState() => _HouseMapState();
 }
 
-class _LocationMapState extends State<LocationMap> {
+class _HouseMapState extends State<HouseMap> {
   final Set<Marker> _markers = {};
   final Completer<GoogleMapController> _controller = Completer();
 
-  @override
-  void initState() {
-    super.initState();
-  }
-
+  // Добавление маркера по переданым координатам из предыдущего раздела
   Future _addMarker() async {
-    String comment = dataToMap.locationName.toString();
+    String comment = dataToMap.streetHouse + ', ' + dataToMap.numberHouse;
     BitmapDescriptor marker = await BitmapDescriptor.fromAssetImage(
       const ImageConfiguration(),
-      'assets/icons/pin_area.png',
+      'assets/icons/pin_house.png',
     );
     _markers.add(Marker(
       markerId: const MarkerId('main target'),
       infoWindow: InfoWindow(title: comment),
-      position: LatLng(dataToMap.locationLatitude, dataToMap.locationLongitude),
+      position: LatLng(dataToMap.houseLatitude, dataToMap.houseLongitude),
       icon: marker,
     ));
 
     setState(() {});
   }
 
-  double zoomVal = 14.0;
+  double zoomVal = 17.0;
 
+// Кнопка увеличения масштаба
   Widget _zoomminusfunction() {
     return Align(
       alignment: const Alignment(0.98, 0.1),
-      child: Container(
+      child: SizedBox(
           width: 45,
           child: FloatingActionButton(
               heroTag: "btn1",
@@ -53,10 +51,11 @@ class _LocationMapState extends State<LocationMap> {
     );
   }
 
+// Кнопка уменьшения масштаба
   Widget _zoomplusfunction() {
     return Align(
         alignment: const Alignment(0.98, -0.1),
-        child: Container(
+        child: SizedBox(
           width: 45,
           child: FloatingActionButton(
               heroTag: "btn2",
@@ -69,17 +68,19 @@ class _LocationMapState extends State<LocationMap> {
         ));
   }
 
+// Функция увеличения масштаба
   Future<void> _minus(double zoomVal) async {
     final GoogleMapController controller = await _controller.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
-        target: LatLng(dataToMap.locationLatitude, dataToMap.locationLongitude),
+        target: LatLng(dataToMap.houseLatitude, dataToMap.houseLongitude),
         zoom: zoomVal)));
   }
 
+// Функция уменьшения масштаба
   Future<void> _plus(double zoomVal) async {
     final GoogleMapController controller = await _controller.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
-        target: LatLng(dataToMap.locationLatitude, dataToMap.locationLongitude),
+        target: LatLng(dataToMap.houseLatitude, dataToMap.houseLongitude),
         zoom: zoomVal)));
   }
 
@@ -94,13 +95,13 @@ class _LocationMapState extends State<LocationMap> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text(dataToMap.locationName.toString()),
+          title: const Text('Карта'),
           centerTitle: true,
           backgroundColor: dataToMap.bgcolor,
           actions: <Widget>[
             IconButton(
               icon: const Icon(
-                Icons.home,
+                Icons.home_outlined,
                 size: 30,
               ),
               onPressed: () {
@@ -116,14 +117,31 @@ class _LocationMapState extends State<LocationMap> {
                   _controller.complete(controller);
                 },
                 initialCameraPosition: CameraPosition(
-                  target: LatLng(
-                      dataToMap.locationLatitude, dataToMap.locationLongitude),
+                  target:
+                      LatLng(dataToMap.houseLatitude, dataToMap.houseLongitude),
                   zoom: zoomVal,
                 ),
                 myLocationEnabled: false,
                 myLocationButtonEnabled: false,
                 markers: _markers,
                 zoomControlsEnabled: false),
+            Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  alignment: Alignment.center,
+                  margin: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      border: Border.all(color: Colors.grey.shade500),
+                      color: Colors.white),
+                  width: 400,
+                  height: 50,
+                  child: Text(
+                      dataToMap.streetHouse + ", " + dataToMap.numberHouse,
+                      style: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold)),
+                )),
             _zoomminusfunction(),
             _zoomplusfunction(),
           ],
