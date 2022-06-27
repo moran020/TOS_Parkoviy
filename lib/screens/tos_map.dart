@@ -88,6 +88,7 @@ class _TOSMapState extends State<TOSMap> {
       ),
       body: Stack(
         children: [
+          // Карта
           SizedBox(
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
@@ -107,6 +108,7 @@ class _TOSMapState extends State<TOSMap> {
                       .union(_markersPlaces)
                       .union(_markersOrganizations),
                   zoomControlsEnabled: false)),
+          // Кнопки изменения масштаба
           Container(
             alignment: Alignment.topRight,
             padding: const EdgeInsets.only(top: 170, right: 5),
@@ -114,17 +116,16 @@ class _TOSMapState extends State<TOSMap> {
               children: [_zoomplusfunction(), _zoomminusfunction()],
             ),
           ),
+          // Кнопки включения/включения маркеров
           Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                margin: const EdgeInsets.all(10),
-                height: 130,
+                padding: const EdgeInsets.all(5),
+                height: 119,
+                width: MediaQuery.of(context).size.width,
                 color: Colors.white,
                 child: Column(
                   children: [
-                    const SizedBox(
-                      height: 10,
-                    ),
                     //Кнопки включения/выключения маркеров домов и мероприятий
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -137,10 +138,11 @@ class _TOSMapState extends State<TOSMap> {
                           borderRadius: BorderRadius.circular(4.0),
                           borderColor: bgColorHousesAppBar,
                           borderWidth: 2,
-                          children: const <Widget>[
-                            SizedBox(
-                              width: 170,
-                              child: Center(
+                          children: <Widget>[
+                            Container(
+                              constraints: const BoxConstraints(
+                                  maxHeight: 53.0, minWidth: 170.0),
+                              child: const Center(
                                   child: Text('Дома',
                                       style: TextStyle(
                                         fontSize: 18,
@@ -168,10 +170,11 @@ class _TOSMapState extends State<TOSMap> {
                           borderRadius: BorderRadius.circular(4.0),
                           borderColor: bgColorEventsAppBar,
                           borderWidth: 2,
-                          children: const <Widget>[
-                            SizedBox(
-                              width: 170,
-                              child: Center(
+                          children: <Widget>[
+                            Container(
+                              constraints: const BoxConstraints(
+                                  maxHeight: 53.0, minWidth: 170.0),
+                              child: const Center(
                                   child: Text('Мероприятия',
                                       style: TextStyle(
                                         fontSize: 18,
@@ -205,10 +208,11 @@ class _TOSMapState extends State<TOSMap> {
                           borderRadius: BorderRadius.circular(4.0),
                           borderColor: bgColorPlacesAppBar,
                           borderWidth: 2,
-                          children: const <Widget>[
-                            SizedBox(
-                              width: 170,
-                              child: Center(
+                          children: <Widget>[
+                            Container(
+                              constraints: const BoxConstraints(
+                                  maxHeight: 53.0, minWidth: 170.0),
+                              child: const Center(
                                   child: Text('Пространства',
                                       style: TextStyle(
                                         fontSize: 18,
@@ -236,10 +240,11 @@ class _TOSMapState extends State<TOSMap> {
                           borderRadius: BorderRadius.circular(4.0),
                           borderColor: bgColorOrganizationsAppBar,
                           borderWidth: 2,
-                          children: const <Widget>[
-                            SizedBox(
-                              width: 170,
-                              child: Center(
+                          children: <Widget>[
+                            Container(
+                              constraints: const BoxConstraints(
+                                  maxHeight: 53.0, minWidth: 170.0),
+                              child: const Center(
                                   child: Text('Организации',
                                       style: TextStyle(
                                         fontSize: 18,
