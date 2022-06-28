@@ -22,9 +22,9 @@ class Events {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    if (this.event != null) {
-      data['event'] = this.event!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (event != null) {
+      data['event'] = event!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -73,19 +73,19 @@ class Event {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['ID'] = this.iD;
-    data['eventName'] = this.eventName;
-    if (this.eventType != null) {
-      data['eventType'] = this.eventType!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['ID'] = iD;
+    data['eventName'] = eventName;
+    if (eventType != null) {
+      data['eventType'] = eventType!.map((v) => v.toJson()).toList();
     }
-    data['description'] = this.description;
-    data['place'] = this.place;
-    data['date'] = this.date;
-    data['time'] = this.time;
-    data['longitude'] = this.longitude;
-    data['latitude'] = this.latitude;
-    data['image'] = this.image;
+    data['description'] = description;
+    data['place'] = place;
+    data['date'] = date;
+    data['time'] = time;
+    data['longitude'] = longitude;
+    data['latitude'] = latitude;
+    data['image'] = image;
     return data;
   }
 }
@@ -116,13 +116,13 @@ class EventType {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['culture'] = this.culture;
-    data['sport'] = this.sport;
-    data['education'] = this.education;
-    data['ecology'] = this.ecology;
-    data['family'] = this.family;
-    data['voluntiiring'] = this.voluntiiring;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['culture'] = culture;
+    data['sport'] = sport;
+    data['education'] = education;
+    data['ecology'] = ecology;
+    data['family'] = family;
+    data['voluntiiring'] = voluntiiring;
     return data;
   }
 }

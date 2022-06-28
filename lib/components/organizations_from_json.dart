@@ -22,9 +22,9 @@ class Organizations {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    if (this.organization != null) {
-      data['organization'] = this.organization!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (organization != null) {
+      data['organization'] = organization!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -71,18 +71,18 @@ class Organization {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['ID'] = this.iD;
-    data['name'] = this.name;
-    data['type'] = this.type;
-    data['abbreviation'] = this.abbreviation;
-    data['short_descr'] = this.shortDescr;
-    data['long_descr'] = this.longDescr;
-    data['street'] = this.street;
-    data['house'] = this.house;
-    data['longitude'] = this.longitude;
-    data['latitude'] = this.latitude;
-    data['image'] = this.image;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['ID'] = iD;
+    data['name'] = name;
+    data['type'] = type;
+    data['abbreviation'] = abbreviation;
+    data['short_descr'] = shortDescr;
+    data['long_descr'] = longDescr;
+    data['street'] = street;
+    data['house'] = house;
+    data['longitude'] = longitude;
+    data['latitude'] = latitude;
+    data['image'] = image;
     return data;
   }
 }

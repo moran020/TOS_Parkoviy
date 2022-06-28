@@ -22,9 +22,9 @@ class Houses {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    if (this.house != null) {
-      data['house'] = this.house!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (house != null) {
+      data['house'] = house!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -78,22 +78,21 @@ class House {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['ID'] = this.iD;
-    if (this.caretaker != null) {
-      data['caretaker'] = this.caretaker!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['ID'] = iD;
+    if (caretaker != null) {
+      data['caretaker'] = caretaker!.map((v) => v.toJson()).toList();
     }
-    data['city'] = this.city;
-    data['street'] = this.street;
-    data['house'] = this.house;
-    data['year'] = this.year;
-    data['service_provider'] = this.serviceProvider;
-    if (this.refurbishment != null) {
-      data['refurbishment'] =
-          this.refurbishment!.map((v) => v.toJson()).toList();
+    data['city'] = city;
+    data['street'] = street;
+    data['house'] = house;
+    data['year'] = year;
+    data['service_provider'] = serviceProvider;
+    if (refurbishment != null) {
+      data['refurbishment'] = refurbishment!.map((v) => v.toJson()).toList();
     }
-    data['longitude'] = this.longitude;
-    data['latitude'] = this.latitude;
+    data['longitude'] = longitude;
+    data['latitude'] = latitude;
     return data;
   }
 }
@@ -121,12 +120,12 @@ class Caretaker {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['caretakerName'] = this.caretakerName;
-    data['caretakerSurname'] = this.caretakerSurname;
-    data['caretakerDadname'] = this.caretakerDadname;
-    data['initials'] = this.initials;
-    data['contact'] = this.contact;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['caretakerName'] = caretakerName;
+    data['caretakerSurname'] = caretakerSurname;
+    data['caretakerDadname'] = caretakerDadname;
+    data['initials'] = initials;
+    data['contact'] = contact;
     return data;
   }
 }
@@ -195,27 +194,27 @@ class Refurbishment {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    if (this.roof != null) {
-      data['roof'] = this.roof!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (roof != null) {
+      data['roof'] = roof!.map((v) => v.toJson()).toList();
     }
-    if (this.front != null) {
-      data['front'] = this.front!.map((v) => v.toJson()).toList();
+    if (front != null) {
+      data['front'] = front!.map((v) => v.toJson()).toList();
     }
-    if (this.electronics != null) {
-      data['electronics'] = this.electronics!.map((v) => v.toJson()).toList();
+    if (electronics != null) {
+      data['electronics'] = electronics!.map((v) => v.toJson()).toList();
     }
-    if (this.water != null) {
-      data['water'] = this.water!.map((v) => v.toJson()).toList();
+    if (water != null) {
+      data['water'] = water!.map((v) => v.toJson()).toList();
     }
-    if (this.sewerage != null) {
-      data['sewerage'] = this.sewerage!.map((v) => v.toJson()).toList();
+    if (sewerage != null) {
+      data['sewerage'] = sewerage!.map((v) => v.toJson()).toList();
     }
-    if (this.heating != null) {
-      data['heating'] = this.heating!.map((v) => v.toJson()).toList();
+    if (heating != null) {
+      data['heating'] = heating!.map((v) => v.toJson()).toList();
     }
-    if (this.gas != null) {
-      data['gas'] = this.gas!.map((v) => v.toJson()).toList();
+    if (gas != null) {
+      data['gas'] = gas!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -233,9 +232,9 @@ class Roof {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['maintenanceYear'] = this.maintenanceYear;
-    data['condition'] = this.condition;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['maintenanceYear'] = maintenanceYear;
+    data['condition'] = condition;
     return data;
   }
 }
@@ -252,9 +251,9 @@ class Front {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['maintenanceYear'] = this.maintenanceYear;
-    data['condition'] = this.condition;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['maintenanceYear'] = maintenanceYear;
+    data['condition'] = condition;
     return data;
   }
 }
@@ -271,9 +270,9 @@ class Electronics {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['maintenanceYear'] = this.maintenanceYear;
-    data['condition'] = this.condition;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['maintenanceYear'] = maintenanceYear;
+    data['condition'] = condition;
     return data;
   }
 }
@@ -290,9 +289,9 @@ class Water {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['maintenanceYear'] = this.maintenanceYear;
-    data['condition'] = this.condition;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['maintenanceYear'] = maintenanceYear;
+    data['condition'] = condition;
     return data;
   }
 }
@@ -309,9 +308,9 @@ class Sewerage {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['maintenanceYear'] = this.maintenanceYear;
-    data['condition'] = this.condition;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['maintenanceYear'] = maintenanceYear;
+    data['condition'] = condition;
     return data;
   }
 }
@@ -328,9 +327,9 @@ class Heating {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['maintenanceYear'] = this.maintenanceYear;
-    data['condition'] = this.condition;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['maintenanceYear'] = maintenanceYear;
+    data['condition'] = condition;
     return data;
   }
 }
@@ -347,9 +346,9 @@ class Gas {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['maintenanceYear'] = this.maintenanceYear;
-    data['condition'] = this.condition;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['maintenanceYear'] = maintenanceYear;
+    data['condition'] = condition;
     return data;
   }
 }

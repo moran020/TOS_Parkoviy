@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'home_screen.dart';
 
 // Заставка
 class SplashScreenPage extends StatefulWidget {

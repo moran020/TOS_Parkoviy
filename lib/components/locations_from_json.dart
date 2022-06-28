@@ -22,9 +22,9 @@ class Locations {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    if (this.location != null) {
-      data['location'] = this.location!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (location != null) {
+      data['location'] = location!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -71,18 +71,18 @@ class Location {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['ID'] = this.iD;
-    data['name'] = this.name;
-    data['type'] = this.type;
-    data['condition'] = this.condition;
-    data['finance'] = this.finance;
-    data['full_descr'] = this.fullDescr;
-    data['street'] = this.street;
-    data['house'] = this.house;
-    data['longitude'] = this.longitude;
-    data['latitude'] = this.latitude;
-    data['image'] = this.image;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['ID'] = iD;
+    data['name'] = name;
+    data['type'] = type;
+    data['condition'] = condition;
+    data['finance'] = finance;
+    data['full_descr'] = fullDescr;
+    data['street'] = street;
+    data['house'] = house;
+    data['longitude'] = longitude;
+    data['latitude'] = latitude;
+    data['image'] = image;
     return data;
   }
 }

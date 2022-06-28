@@ -81,11 +81,15 @@ class Body extends StatelessWidget {
           ),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 7),
-            child: RaisedButton(
-              elevation: 20,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(150)),
-              color: bgColorMapAppBar,
+            child: ElevatedButton(
+              style: ButtonStyle(
+                elevation: ButtonStyleButton.allOrNull(20.0),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(150))),
+                backgroundColor:
+                    MaterialStateProperty.all<Color>(bgColorMapAppBar),
+              ),
               onPressed: () {
                 Route route =
                     MaterialPageRoute(builder: ((context) => const TOSMap()));
@@ -114,6 +118,7 @@ class Body extends StatelessWidget {
 }
 
 // Конструктор для разделов главного меню
+// ignore: must_be_immutable
 class MenuCard extends StatelessWidget {
   late String icon;
   late String title;
@@ -133,10 +138,13 @@ class MenuCard extends StatelessWidget {
     return Container(
       height: 85,
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 7),
-      child: RaisedButton(
-        color: bgcolor,
-        elevation: 20,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(150)),
+      child: ElevatedButton(
+        style: ButtonStyle(
+          elevation: ButtonStyleButton.allOrNull(20.0),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(150))),
+          backgroundColor: MaterialStateProperty.all<Color>(bgcolor),
+        ),
         onPressed: () {
           {
             Navigator.pushNamed(
