@@ -111,8 +111,7 @@ class _CatalogOrganizationsListState extends State<CatalogOrganizationsList> {
                 return ListView.builder(
                   padding: const EdgeInsets.only(
                       left: 15, top: 20, right: 15, bottom: 15),
-                  // ignore: unnecessary_null_comparison
-                  itemCount: items == null ? 0 : items.length,
+                  itemCount: items.length,
                   itemBuilder: (_, index) {
                     return items[index]
                                 .name!

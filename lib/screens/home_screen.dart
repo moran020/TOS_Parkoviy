@@ -55,25 +55,25 @@ class Body extends StatelessWidget {
           const SizedBox(
             height: 50,
           ),
-          MenuCard(
+          const MenuCard(
             icon: 'assets/icons/houses.png',
             bgcolor: bgColorHousesAppBar,
             title: 'Дома',
             pathName: '/catalog_houses',
           ),
-          MenuCard(
+          const MenuCard(
             icon: 'assets/icons/events.png',
             bgcolor: bgColorEventsAppBar,
             title: 'Мероприятия',
             pathName: '/catalog_events',
           ),
-          MenuCard(
+          const MenuCard(
             icon: 'assets/icons/locations.png',
             bgcolor: bgColorPlacesAppBar,
             title: 'Пространства',
             pathName: '/catalog_locations',
           ),
-          MenuCard(
+          const MenuCard(
             icon: 'assets/icons/organizations.png',
             bgcolor: bgColorOrganizationsAppBar,
             title: 'Организации',
@@ -118,14 +118,13 @@ class Body extends StatelessWidget {
 }
 
 // Конструктор для разделов главного меню
-// ignore: must_be_immutable
 class MenuCard extends StatelessWidget {
-  late String icon;
-  late String title;
-  late String pathName;
-  dynamic bgcolor;
+  final String icon;
+  final String title;
+  final String pathName;
+  final dynamic bgcolor;
 
-  MenuCard({
+  const MenuCard({
     Key? key,
     required this.icon,
     required this.bgcolor,
